@@ -1,8 +1,7 @@
 SELECT idCliente,
-        -- qtdePontos,
-        -- qtdePontos + 10 AS qtdePontosPlus10,
-        -- qtdePontos * 2 AS qtdePontosX2qtdePontos * 2 AS qtdePontosX2
-                    -- usamos AS para nomear colunas 
         DtCriacao,
-        substr(DtCriacao, 1, 10) AS dataFormathy
+
+        datetime(substr(DtCriacao, 1,16)) AS dataFormatada,
+        strftime('%w',substr(DtCriacao,1,16)) AS diaDaSemana
+        -- Dia da semana começa no 0 (sunday == domingo, portanto segunda == 1)
 FROM clientes
